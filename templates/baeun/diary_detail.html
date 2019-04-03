@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}
+Diary
+{% endblock %}
+{% block content %}
+    <p>
+    <a href="{% url "diary" %}" class="btn">목록으로</a>
+    </p>
+<h1>다이어리</h1>
+<p>소유자 : {{ object.owner }}</p>
+<p>글아이디 : {{ object.id }}</p>
+<p>내용 : {{ object.content }}</p>
+<p>내용일자 : {{ object.event_dt }}</p>
+{% endblock %}

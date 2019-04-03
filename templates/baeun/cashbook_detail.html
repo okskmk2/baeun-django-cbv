@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}
+가계부
+{% endblock %}
+{% block content %}
+    <p><a href="{% url "cashbook" %}" class="btn">목록으로</a></p>
+<h1>가계부</h1>
+<p>소유자 : {{ object.owner }}</p>
+<p>글아이디 : {{ object.id }}</p>
+<p>내용일자 : {{ object.event_dt }}</p>
+<p>상세용도 : {{ object.money_usage }}</p>
+<p>금액 : {{ object.money_amount }}</p>
+<p>계정분류 : {{ object.money_usage_group }}</p>
+<p>일정분류 : {{ object.counting_type }}</p>
+{% endblock %}

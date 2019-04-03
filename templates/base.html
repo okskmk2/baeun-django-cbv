@@ -1,0 +1,74 @@
+{% load staticfiles %}
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Baeun {% block title %}{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "common.css" %}">
+    <link rel="stylesheet" href="{% static "jquery-ui-1.12.1/jquery-ui.min.css" %}">
+    <style>
+    .material-icons{
+            color: #333;
+    }
+    </style>
+    {% block style %}
+    {% endblock %}
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="row jc-betw">
+            <span class="brand_id"><a href="/">바은</a></span>
+            <div>
+                <nav>
+                    <span>{{ user.get_username }}</span>
+                    {% if user.is_authenticated %}
+                        <a>나의정보</a>
+                        <a href="{% url 'logout' %}">로그아웃</a>
+                    {% else %}
+                        <a href="{% url 'register' %}">회원가입</a>
+                        <a href="{% url 'login' %}">로그인</a>
+                    {% endif %}
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container">
+    <div class="main">
+        <nav class="gnb">
+            <div class="">목차</div>
+            <ul>
+                <li><a href="{% url 'diary' %}">다이어리</a></li>
+                <li><a href="{% url 'cashbook' %}">가계부</a></li>
+                <li><a href="{% url 'relation' %}">사람들</a></li>
+                <li><a href="{% url 'friend_history' %}">지인기록</a></li>
+            </ul>
+        </nav>
+        <div class="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+<footer>
+    <nav class="container">
+        <ul>
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'admin:index' %}">관리자 페이지</a></li>
+        {% else %}
+
+        {% endif %}
+        </ul>
+    </nav>
+</footer>
+<script src="{% static 'jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'jquery-ui-1.12.1/jquery-ui.min.js' %}"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="//cdn.ckeditor.com/4.11.3/standard/ckeditor.js"></script>
+{% block script %}
+{% endblock %}
+</body>
+</html>

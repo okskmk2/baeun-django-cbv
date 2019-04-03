@@ -1,0 +1,150 @@
+body {
+    margin: 0;
+    background-color: #f1f1f1;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    margin: 0 0 1rem;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f1f1f1;
+}
+
+td {
+    padding: 3px 6px;
+}
+
+header {
+    border-top: 4px solid rebeccapurple;
+    margin-bottom: 1rem;
+    padding: 1rem 0;
+    background-color: #fff;
+}
+
+footer {
+    margin-top: 2rem;
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+}
+
+nav a {
+    color: inherit;
+}
+
+label {
+    vertical-align: top;
+}
+
+.brand_id {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.brand_id > a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    margin: 0 auto;
+    width: 75rem;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.ai-center {
+    align-items: center;
+}
+
+.jc-betw {
+    justify-content: space-between;
+}
+
+.rest {
+    flex-grow: 1;
+}
+
+.gnb {
+    width: 9rem;
+    margin-right: 2rem;
+}
+
+.content {
+    width: 60rem;
+}
+
+.btn, input[type=submit] {
+    border-width: 0;
+    cursor: pointer;
+    padding: 3px 7px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #607D8B;
+    font-size: 0.85em;
+    width: auto;
+}
+
+.big-btn {
+    padding: 5px 10px !important;
+    font-size: 1rem !important;
+}
+
+.main {
+    display: flex;
+    padding: 2rem;
+    background-color: #fff;
+}
+
+.mt1 {
+    margin-top: 1rem;
+}
+
+.mb05 {
+    margin-bottom: 0.5rem;
+}
+
+.mb1 {
+    margin-bottom: 1rem;
+}
+
+ul.pagination {
+    padding: 0;
+    text-align: center;
+}
+
+.pagination li {
+    list-style: none;
+    display: inline;
+}
+
+.pagination li.active {
+    color: red;
+}
+
+.card {
+    padding: 1rem;
+    box-shadow: 1px 1px 1px 1px #ddd;
+    margin-bottom: 1rem;
+}
+
+.text-right {
+    text-align: right;
+}

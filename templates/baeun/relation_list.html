@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}
+    사람들
+{% endblock %}
+{% block content %}
+    <h1>사람들</h1>
+    <div class="mb1">
+        <a href="{% url 'relation_form' %}" class="btn">등록</a>
+        <a href="{% url "relation_me" %}" class="btn">나를 등록한 사람들 보기</a>
+    </div>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>소유자</th>
+            <th>친구아이디</th>
+            <th>총신뢰포인트</th>
+            <th>최초일자</th>
+            <th>등록일자</th>
+            <th>편집</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for article in relation_list %}
+            <tr>
+                <td><a href="{% url "relation_detail" article.id %}">{{ article.id }}</a></td>
+                <td>{{ article.owner }}</td>
+                <td>{{ article.friend_id }}</td>
+                <td>{{ article.total_trust_point }}</td>
+                <td>{{ article.first_friend_dt }}</td>
+                <td>{{ article.reg_dt }}</td>
+                <td>
+                    <a href="{% url "relation_update" article.id %}"><i class="material-icons">edit</i></a>
+                    <a href="{% url "relation_delete" article.id %}"><i class="material-icons">delete</i></a>
+                </td>
+            </tr>
+            </tbody>
+        {% endfor %}
+    </table>
+    {% if is_paginated %}
+        <ul class="pagination">
+            {% if page_obj.has_previous %}
+                <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+            {% else %}
+                <li class="disabled"><span>&laquo;</span></li>
+            {% endif %}
+            {% for i in paginator.page_range %}
+                {% if page_obj.number == i %}
+                    <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                {% else %}
+                    <li><a href="?page={{ i }}">{{ i }}</a></li>
+                {% endif %}
+            {% endfor %}
+            {% if page_obj.has_next %}
+                <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+            {% else %}
+                <li class="disabled"><span>&raquo;</span></li>
+            {% endif %}
+        </ul>
+    {% endif %}
+{% endblock %}

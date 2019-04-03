@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}
+    Diary Form
+{% endblock %}
+{% block style %}
+    <style>
+    input{
+        width: 6rem;
+        padding:4px 6px;
+    }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <p>
+        <a href="{% url "diary" %}" class="btn">목록으로</a>
+    </p>
+    <h1>다이어리</h1>
+<form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="저장">
+</form>
+{% endblock %}
+{% block script %}
+        <script>
+        $(function () {
+            $("#id_event_dt").datepicker({
+                dateFormat: "yy-mm-dd",
+                dayNamesMin: ["일", "월", "화", "수", "목", "금", "토"],
+                monthNames: [ "1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월" ]
+            });
+            //$('#id_owner').attr("disabled", true);
+            //CKEDITOR.replace( 'id_content' );
+        });
+    </script>
+{% endblock %}

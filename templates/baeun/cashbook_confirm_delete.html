@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}
+가계부
+{% endblock %}
+{% block content %}
+    <a href="{% url "cashbook" %}" class="btn">목록으로</a>
+<form method="post">{% csrf_token %}
+    <p>Are you sure you want to delete "{{ object }}"?</p>
+    <input type="submit" value="삭제하기">
+</form>
+{% endblock %}

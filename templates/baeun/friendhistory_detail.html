@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}
+지인기록
+{% endblock %}
+{% block content %}
+    <p><a href="{% url "friend_history" %}" class="btn">목록으로</a></p>
+<h1>지인기록</h1>
+<p>관계아이디 : {{ object.relation }}</p>
+<p>신뢰포인트 : {{ object.trust_point }}</p>
+<p>내용 : {{ object.content }}</p>
+<p>등록일자 : {{ object.reg_dt }}</p>
+{% endblock %}
